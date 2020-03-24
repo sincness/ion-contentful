@@ -1,2 +1,3 @@
-# ion-contentful
-Contentful Ionic Angular
+# Contentful with Ionic 🌳
+Ionic Angular Contentful
+HTTP GET Request 🔥
