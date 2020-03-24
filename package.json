@@ -1,7 +1,7 @@
 {
   "name": "ion-contentful",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "version": "1.0.4",
+  "author": "Malthe",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -34,6 +34,7 @@
     "@angular/compiler": "~8.2.14",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
+    "@babel/compat-data": "^7.8.0",
     "@ionic/angular-toolkit": "^2.1.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
@@ -47,10 +48,14 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "npm-force-resolutions": "0.0.3",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "resolutions": {
+    "@babel/preset-env": "^7.8.7"
+  },
+  "description": "An Ionic & Contentful project"
 }

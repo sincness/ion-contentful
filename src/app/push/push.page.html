@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary" routerLink="/home">
+    <ion-icon size="large" name="aperture-outline" class="icon" slot="start"></ion-icon>
+    <ion-title class="title" slot="start">Contentful</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <form>
+      <ion-item>
+        <ion-text>Du er ved at oprette en ny Page</ion-text>
+        <ion-chip slot="start">
+          <ion-label>POST REQUEST</ion-label>
+        </ion-chip>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Skriv en titel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea placeholder="Skriv noget content"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-button type="submit">Opret</ion-button>
+      </ion-item>
+    
+  </form>
+</ion-content>

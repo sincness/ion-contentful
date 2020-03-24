@@ -1,17 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="tertiary">
-    <ion-title>
-      Contentful
-    </ion-title>
+  <ion-toolbar color="tertiary" routerLink="/push">
+    <ion-icon size="large" name="aperture-outline" class="icon" slot="start"></ion-icon>
+    <ion-title class="title" slot="start">Contentful</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar color="tertiary">
-      <ion-title size="large">Contentful</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-chip class="chip">
+    <ion-label>GET REQUEST</ion-label>
+  </ion-chip>
 
     <ul>
       <strong>Pages med Unordered list</strong>
@@ -34,4 +31,15 @@
         {{ page.fields.title }}
       </ion-item>
     </ion-list>
+
+    <ion-item>
+      <ion-row>
+          <ion-col width-25>
+              <ion-icon name="time-outline"></ion-icon> 
+          </ion-col>
+          <ion-col width-75 padding-vertical>
+              Recent
+          </ion-col>              
+      </ion-row>
+  </ion-item>
 </ion-content>
