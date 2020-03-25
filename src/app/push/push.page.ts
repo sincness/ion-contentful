@@ -12,6 +12,12 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 export class PushPage implements OnInit {
 
   public nyheder: Entry<any>[] = [];
+  public files: any = [];
+
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 
   constructor(private contentfulService: ContentfulService) { }
 
@@ -19,13 +25,37 @@ export class PushPage implements OnInit {
     this.contentfulService.getNyheder()
     .then(nyheder => {
       this.nyheder = nyheder;
+      this.nyheder.forEach(nyhed => {
+        if(nyhed.fields.billeder) {
+          let items = this.objectToArray(nyhed.fields.billeder)
+          console.log(items)
+          items[0].forEach(item => {
+            console.log(item.fields.file.url)
+          });
+        }
+        // console.log(nyhed)
+      });
     })
+    // .then(nyheder => this.images = )
 
     setTimeout(() => {
       this.check()
+
     }, 1000);
 
   }
+
+  objectToArray(object) {
+    return Array.of(object)
+  }
+
+  sliderOrNot(object) {
+    let x = this.objectToArray(object);
+    this.files = x[0]
+    console.log(this.files)
+  }
+
+
 
   check() {
     console.log(this.nyheder)
