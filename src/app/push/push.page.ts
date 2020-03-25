@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -14,12 +16,14 @@ export class PushPage implements OnInit {
   public nyheder: Entry<any>[] = [];
   public files: any = [];
 
+  toast: any;
+
   slideOpts = {
     initialSlide: 1,
     speed: 400
   };
 
-  constructor(private contentfulService: ContentfulService) { }
+  constructor(private contentfulService: ContentfulService, public toastController: ToastController) { }
 
   ngOnInit() {
     this.contentfulService.getNyheder()
@@ -39,22 +43,42 @@ export class PushPage implements OnInit {
     // .then(nyheder => this.images = )
 
     setTimeout(() => {
-      this.check()
+      this.showToast()
 
     }, 1000);
 
   }
 
+
+  showToast() {
+    this.toast = this.toastController.create({
+      position: 'top',
+      message: 'Tryk på Toolbaren for at komme tilbage',
+      duration: 2000
+    }).then((toastData)=>{
+      console.log(toastData);
+      toastData.present();
+    });
+  }
+  HideToast(){
+    this.toast = this.toastController.dismiss();
+  }
+
+
+
   objectToArray(object) {
     return Array.of(object)
   }
 
-  sliderOrNot(object) {
-    let x = this.objectToArray(object);
-    this.files = x[0]
-    console.log(this.files)
-  }
 
+  // async presentPopover(ev: any) {
+  //   const popover = await this.popoverController.create({
+  //     component: PopoverComponent,
+  //     event: ev,
+  //     translucent: true
+  //   });
+  //   return await popover.present();
+  // }
 
 
   check() {

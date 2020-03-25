@@ -1,31 +1,35 @@
+// .card-content {
+//     height: 4em !important;
+// }
+
 .chip {
-    transform: translate(15%, 20%);
-  }
-  
-  .title {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: -2vw;  // Desktop size -1vw
-    strong {
-      font-size: .7em;
-    }
-  }
-  
-  .icon {
-    margin-left: 5vw;  // Desktop size 1vw
-    // display: inline-block;
-    font-size: 35px;
-    // color: rgb(255, 119, 119);
-    vertical-align: middle;
-   }
-  
-   @media screen and (min-width: 768px) {
-    .icon {
-      margin-left: 1vw;  // Mobile size 5vw
-  
-    }
-    .title {
-      margin-right: -1vw;  // Mobile size 2vw
-    }
-   }
+transform: translate(15%, 20%);
+}
+
+.title {
+display: inline-block;
+vertical-align: middle;
+margin-right: -2vw;  // Desktop size -1vw
+strong {
+    font-size: .7em;
+}
+}
+
+.icon {
+margin-left: 5vw;  // Desktop size 1vw
+// display: inline-block;
+font-size: 35px;
+// color: rgb(255, 119, 119);
+vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+.icon {
+    margin-left: 1vw;  // Mobile size 5vw
+
+}
+.title {
+    margin-right: -1vw;  // Mobile size 2vw
+}
+}
 

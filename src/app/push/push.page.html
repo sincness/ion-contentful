@@ -47,7 +47,7 @@
       <ion-card-subtitle class="subtitles">{{ _returnCreatedDate(nyhed.sys.createdAt) }}</ion-card-subtitle>
       <ion-card-title><strong>{{ nyhed.fields.titel }}</strong></ion-card-title>
     </ion-card-header>
-    <ion-card-content [innerHtml]="_returnHtmlFromRichText(nyhed.fields.indhold)">
+    <ion-card-content class="card-content" [innerHtml]="_returnHtmlFromRichText(nyhed.fields.indhold)">
 
     </ion-card-content>
   </ion-card>
