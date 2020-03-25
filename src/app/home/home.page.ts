@@ -16,5 +16,13 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.contentfulService.getProducts()
     .then(pages => this.pages = pages)
+    setTimeout(() => {
+      this.check()
+    }, 1000);
+
+  }
+
+  check() {
+    console.log(this.pages)
   }
 }

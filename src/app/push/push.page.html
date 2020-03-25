@@ -1,3 +1,11 @@
+<script>
+  var exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below
+</script>
+<script
+  src="https://unpkg.com/@contentful/rich-text-html-renderer@12.0.0/dist/rich-text-html-renderer.es5.js"
+  charset="utf-8"
+></script>
+
 <ion-header [translucent]="true">
   <ion-toolbar color="tertiary" routerLink="/home">
     <ion-icon size="large" name="aperture-outline" class="icon" slot="start"></ion-icon>
@@ -9,21 +17,27 @@
   
 
   <form>
+    
       <ion-item>
-        <ion-text>Du er ved at oprette en ny Page</ion-text>
-        <ion-chip slot="start">
-          <ion-label>POST REQUEST</ion-label>
+        <ion-text>Nyheder</ion-text>
+        <ion-chip slot="end">
+          <ion-label>GET REQUEST</ion-label>
         </ion-chip>
-      </ion-item>
-      <ion-item>
-        <ion-input placeholder="Skriv en titel"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-textarea placeholder="Skriv noget content"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-button type="submit">Opret</ion-button>
       </ion-item>
     
   </form>
+
+  <ion-card *ngFor="let nyhed of nyheder">
+    <img src="http:{{ nyhed.fields.billede.fields.file.url }}" />
+    <ion-card-header>
+      <ion-card-subtitle class="subtitles">Opslag fra {{ nyhed.fields.skaber }}</ion-card-subtitle>
+      <ion-card-subtitle class="subtitles">{{ _returnCreatedDate(nyhed.sys.createdAt) }}</ion-card-subtitle>
+      <ion-card-title><strong>{{ nyhed.fields.titel }}</strong></ion-card-title>
+    </ion-card-header>
+    <ion-card-content [innerHtml]="_returnHtmlFromRichText(nyhed.fields.indhold)">
+
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>
