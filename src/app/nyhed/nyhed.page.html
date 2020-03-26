@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar (click)="dismiss()" color="tertiary">
+    <ion-icon size="large" name="aperture-outline" class="icon" slot="start"></ion-icon>
+    <!-- <ion-title>{{ nyhed.fields.titel }}</ion-title> -->
+    <ion-title class="title" slot="start"><strong>{{ nyhed.fields.titel }}</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img *ngIf="!nyhed.fields.billeder" src="http:{{ nyhed.fields.billede.fields.file.url }}" />
+
+    <ion-slides *ngIf="nyhed.fields.billeder" [options]="slideOpts">
+      <ion-slide *ngFor="let billede of nyhed.fields.billeder">
+        <img src="http:{{ billede.fields.file.url }}" />
+      </ion-slide>
+    </ion-slides>
+    
+    <ion-slides *ngIf="nyhed.fields.billede.fields.length > 1" class="slide-padding" pager="true">
+        <ion-slide *ngFor="let img of nyhed.fields.billede.fields">
+            <ion-text>{{img.file.url}}</ion-text>
+            <ion-img src="http:{{img.file.url}}"></ion-img>
+        </ion-slide>
+    </ion-slides>
+    <ion-card-header (click)="open(nyhed.sys.id)">
+      <ion-card-subtitle class="subtitles"><b>Opslag fra {{ nyhed.fields.skaber }}</b></ion-card-subtitle>
+      <ion-card-subtitle class="subtitles"><b>{{ _returnCreatedDate(nyhed.sys.createdAt) }}</b></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="card-content" [innerHtml]="_returnHtmlFromRichText(nyhed.fields.indhold)">
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

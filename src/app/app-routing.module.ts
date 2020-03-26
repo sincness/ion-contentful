@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'push',
     loadChildren: () => import('./push/push.module').then( m => m.PushPageModule)
   },
+  {
+    path: 'nyhed',
+    loadChildren: () => import('./nyhed/nyhed.module').then( m => m.NyhedPageModule)
+  },
 ];
 
 @NgModule({

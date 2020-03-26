@@ -20,7 +20,7 @@
     
       <ion-item>
         <ion-text>Nyheder</ion-text>
-      <ion-chip slot="end">
+        <ion-chip slot="end">
           <ion-label>GET REQUEST</ion-label>
         </ion-chip>
       </ion-item>
@@ -36,20 +36,21 @@
       </ion-slide>
     </ion-slides>
     
-     <ion-slides *ngIf="nyhed.fields.billede.fields.length > 1" class="slide-padding" pager="false">
-       <ion-slide *ngFor="let img of nyhed.fields.billede.fields">
-          <ion-text>{{img.file.url}}</ion-text>
-          <ion-img src="http:{{img.file.url}}"></ion-img>
-       </ion-slide>
-  </ion-slides>
-    <ion-card-header>
+    <ion-slides *ngIf="nyhed.fields.billede.fields.length > 1" class="slide-padding" pager="false">
+        <ion-slide *ngFor="let img of nyhed.fields.billede.fields">
+            <ion-text>{{img.file.url}}</ion-text>
+            <ion-img src="http:{{img.file.url}}"></ion-img>
+        </ion-slide>
+    </ion-slides>
+    <ion-card-header (click)="open(nyhed.sys.id)">
       <ion-card-subtitle class="subtitles">Opslag fra {{ nyhed.fields.skaber }}</ion-card-subtitle>
       <ion-card-subtitle class="subtitles">{{ _returnCreatedDate(nyhed.sys.createdAt) }}</ion-card-subtitle>
       <ion-card-title><strong>{{ nyhed.fields.titel }}</strong></ion-card-title>
+      <ion-card-subtitle class="subtitles"><b>{{ nyhed.fields.undertitel }}</b></ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content class="card-content" [innerHtml]="_returnHtmlFromRichText(nyhed.fields.indhold)">
+    <!-- <ion-card-content class="card-content" [innerHtml]="_returnHtmlFromRichText(nyhed.fields.indhold)">
 
-    </ion-card-content>
+    </ion-card-content> -->
   </ion-card>
 
 

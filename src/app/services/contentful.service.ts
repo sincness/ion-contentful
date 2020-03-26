@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // import Contentful createClient and type for `Entry`
 import { createClient, Entry } from 'contentful';
+import { from } from 'rxjs';
 
 // configure the service with tokens and content type ids
 // SET YOU OWN CONFIG here
@@ -38,4 +39,11 @@ export class ContentfulService {
     return this.cdaClientX.getEntries(Object.assign({}, query))
     .then(res => res.items);
   }
+
+
+
+  getNyhed(id: string): any {
+    return from(this.cdaClientX.getEntry(id));
+  }
+
 }

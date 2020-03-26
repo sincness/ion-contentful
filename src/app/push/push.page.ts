@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, ModalController } from '@ionic/angular';
 
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { NyhedPage } from '../nyhed/nyhed.page';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class PushPage implements OnInit {
 
   public nyheder: Entry<any>[] = [];
   public files: any = [];
-
+  id: string;
   toast: any;
 
   slideOpts = {
@@ -23,7 +24,13 @@ export class PushPage implements OnInit {
     speed: 400
   };
 
-  constructor(private contentfulService: ContentfulService, public toastController: ToastController) { }
+  constructor(private contentfulService: ContentfulService, public toastController: ToastController, public modalController: ModalController) {
+
+
+    
+
+
+   }
 
   ngOnInit() {
     this.contentfulService.getNyheder()
@@ -32,7 +39,7 @@ export class PushPage implements OnInit {
       this.nyheder.forEach(nyhed => {
         if(nyhed.fields.billeder) {
           let items = this.objectToArray(nyhed.fields.billeder)
-          console.log(items)
+          // console.log(items)
           items[0].forEach(item => {
             console.log(item.fields.file.url)
           });
@@ -42,6 +49,18 @@ export class PushPage implements OnInit {
     })
     // .then(nyheder => this.images = )
 
+
+
+
+
+    
+
+
+
+
+
+
+
     setTimeout(() => {
       this.showToast()
 
@@ -50,6 +69,18 @@ export class PushPage implements OnInit {
   }
 
 
+  async open(id: string) {
+    this.contentfulService.getNyhed(id)
+      .subscribe(async nyhed => {
+        const modal = await this.modalController.create({
+          component: NyhedPage,
+          componentProps: { nyhed }
+        });
+        return await modal.present();
+      });
+    
+  }
+  
   showToast() {
     this.toast = this.toastController.create({
       position: 'top',
