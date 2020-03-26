@@ -7,10 +7,10 @@
 
 - **Present a singular element of the content type News** ✔️
 
-> Author ✒️ ✔️
-> Rich Text 📜 ✔️
-> Date 🗓️ ✔️
-> Title 🔡 ✔️
-> Images 🖼️ ✔️
+#####  ✒️ Author ✔️
+#####  📜 Rich Text ✔️
+#####  🗓️ Date ✔️
+#####  🔡 Title ✔️
+#####  🖼️ Images ✔️
 
 - *More topics to come..* ❌ 🍔
