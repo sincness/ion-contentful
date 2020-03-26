@@ -3,6 +3,8 @@
 
 - **Present a corresponding list of the content type Page elements** ✔️
 
-- **Present a corresponding list of the content type News elements** ❌
+- **Present a corresponding list of the content type News elements** ✔️
 
-- *More topics to come..* 🍔
+- **Present a singular element of the content type News** ✔️
+
+- *More topics to come..* 🍔 ❌
