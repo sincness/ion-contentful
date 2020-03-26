@@ -7,4 +7,4 @@
 
 - **Present a singular element of the content type News** ✔️
 
-- *More topics to come..* 🍔 ❌
+- *More topics to come..* ❌ 🍔
