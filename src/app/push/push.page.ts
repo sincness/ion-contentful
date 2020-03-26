@@ -36,18 +36,17 @@ export class PushPage implements OnInit {
     this.contentfulService.getNyheder()
     .then(nyheder => {
       this.nyheder = nyheder;
-      this.nyheder.forEach(nyhed => {
-        if(nyhed.fields.billeder) {
-          let items = this.objectToArray(nyhed.fields.billeder)
-          // console.log(items)
-          items[0].forEach(item => {
-            console.log(item.fields.file.url)
-          });
-        }
-        // console.log(nyhed)
-      });
+      // this.nyheder.forEach(nyhed => {
+      //   if(nyhed.fields.billeder) {
+      //     let items = this.objectToArray(nyhed.fields.billeder)
+      //     // console.log(items)
+      //     items[0].forEach(item => {
+      //       console.log(item.fields.file.url)
+      //     });
+      //   }
+      //   // console.log(nyhed)
+      // });
     })
-    // .then(nyheder => this.images = )
 
 
 
