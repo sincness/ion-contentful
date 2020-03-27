@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary" routerLink="/home">
+    <ion-icon size="large" name="aperture-outline" class="icon" slot="start"></ion-icon>
+    <ion-title class="title" slot="start">Seneste nyheder</ion-title>
+    <ion-badge size="large" class="badge" color="danger" slot="end">{{ nyheder.length }}</ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item *ngFor="let nyhed of nyheder | slice:0:5; let i=index" (click)="open(nyhed.sys.id)">
+      <ion-thumbnail slot="start">
+        <img src="https:{{ nyhed.fields.billede.fields.file.url }}">
+      </ion-thumbnail>
+      <ion-label>{{ nyhed.fields.titel }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

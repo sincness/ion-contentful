@@ -6,8 +6,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-chip class="chip">
-    <ion-label>GET REQUEST</ion-label>
+  <ion-chip routerLink="/seneste" class="chip">
+    <ion-label>SENESTE NYT</ion-label>
   </ion-chip>
 
     <ul>
@@ -42,4 +42,19 @@
           </ion-col>              
       </ion-row>
   </ion-item>
+
+
+
+
+
+  <ion-list>
+    <ion-item><strong>Nylige nyheder</strong></ion-item>
+    <ion-item *ngFor="let page of pages">
+      {{ page.fields.title }}
+    </ion-item>
+  </ion-list>
+
+
+
+
 </ion-content>

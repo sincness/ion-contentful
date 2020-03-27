@@ -19,7 +19,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.contentfulService.getProducts()
     .then(pages => this.pages = pages)
-    
+    this.check();
     
     
     
@@ -46,6 +46,6 @@ export class HomePage implements OnInit {
   }
 
   check() {
-    console.log(this.pages)
+    setTimeout(_ => console.log(this.pages) , 1000)
   }
 }

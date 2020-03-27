@@ -6,6 +6,8 @@
   charset="utf-8"
 ></script>
 
+<script src='https://gitlab.com/snippets/1684642.js'></script>
+
 <ion-header [translucent]="true">
   <ion-toolbar color="tertiary" routerLink="/home">
     <ion-icon size="large" name="aperture-outline" class="icon" slot="start"></ion-icon>
@@ -20,7 +22,7 @@
     
       <ion-item>
         <ion-text>Nyheder</ion-text>
-        <ion-chip slot="end">
+        <ion-chip routerLink="/seneste" slot="end">
           <ion-label>GET REQUEST</ion-label>
         </ion-chip>
       </ion-item>
@@ -28,18 +30,18 @@
   </form>
 
   <ion-card *ngFor="let nyhed of nyheder">
-    <img *ngIf="!nyhed.fields.billeder" src="http:{{ nyhed.fields.billede.fields.file.url }}" />
+    <img *ngIf="!nyhed.fields.billeder" src="http:{{ nyhed.fields.billede.fields.file.url }}" alt="Billede" />
 
-    <ion-slides *ngIf="nyhed.fields.billeder" [options]="slideOpts">
+    <ion-slides *ngIf="nyhed.fields.billeder" [options]="slideOpts" pager="true">
       <ion-slide *ngFor="let billede of nyhed.fields.billeder">
-        <img src="http:{{ billede.fields.file.url }}" />
+        <img src="http:{{ billede.fields.file.url }}" alt="Billede"/>
       </ion-slide>
     </ion-slides>
     
     <ion-slides *ngIf="nyhed.fields.billede.fields.length > 1" class="slide-padding" pager="false">
         <ion-slide *ngFor="let img of nyhed.fields.billede.fields">
             <ion-text>{{img.file.url}}</ion-text>
-            <ion-img src="http:{{img.file.url}}"></ion-img>
+            <ion-img src="http:{{img.file.url}}" alt="Billede"></ion-img>
         </ion-slide>
     </ion-slides>
     <ion-card-header (click)="open(nyhed.sys.id)">

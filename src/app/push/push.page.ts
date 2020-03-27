@@ -15,7 +15,6 @@ import { NyhedPage } from '../nyhed/nyhed.page';
 export class PushPage implements OnInit {
 
   public nyheder: Entry<any>[] = [];
-  public files: any = [];
   id: string;
   toast: any;
 
@@ -34,31 +33,7 @@ export class PushPage implements OnInit {
 
   ngOnInit() {
     this.contentfulService.getNyheder()
-    .then(nyheder => {
-      this.nyheder = nyheder;
-      // this.nyheder.forEach(nyhed => {
-      //   if(nyhed.fields.billeder) {
-      //     let items = this.objectToArray(nyhed.fields.billeder)
-      //     // console.log(items)
-      //     items[0].forEach(item => {
-      //       console.log(item.fields.file.url)
-      //     });
-      //   }
-      //   // console.log(nyhed)
-      // });
-    })
-
-
-
-
-
-    
-
-
-
-
-
-
+    .then(nyheder => this.nyheder = nyheder)
 
     setTimeout(() => {
       this.showToast()
@@ -94,22 +69,9 @@ export class PushPage implements OnInit {
     this.toast = this.toastController.dismiss();
   }
 
-
-
   objectToArray(object) {
     return Array.of(object)
   }
-
-
-  // async presentPopover(ev: any) {
-  //   const popover = await this.popoverController.create({
-  //     component: PopoverComponent,
-  //     event: ev,
-  //     translucent: true
-  //   });
-  //   return await popover.present();
-  // }
-
 
   check() {
     console.log(this.nyheder)

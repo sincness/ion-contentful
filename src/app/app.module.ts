@@ -12,11 +12,13 @@ import { ContentfulService } from './services/contentful.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NyhedPageModule } from './nyhed/nyhed.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NyhedPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NyhedPageModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     ContentfulService,
     StatusBar,

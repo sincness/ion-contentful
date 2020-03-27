@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'nyhed',
     loadChildren: () => import('./nyhed/nyhed.module').then( m => m.NyhedPageModule)
   },
+  {
+    path: 'seneste',
+    loadChildren: () => import('./seneste/seneste.module').then( m => m.SenestePageModule)
+  },
 ];
 
 @NgModule({

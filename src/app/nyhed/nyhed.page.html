@@ -11,19 +11,19 @@
   <ion-card>
     <img *ngIf="!nyhed.fields.billeder" src="http:{{ nyhed.fields.billede.fields.file.url }}" />
 
-    <ion-slides *ngIf="nyhed.fields.billeder" [options]="slideOpts">
+    <ion-slides *ngIf="nyhed.fields.billeder" [options]="slideOpts" pager="true">
       <ion-slide *ngFor="let billede of nyhed.fields.billeder">
-        <img src="http:{{ billede.fields.file.url }}" />
+        <img src="http:{{ billede.fields.file.url }}" alt=""/>
       </ion-slide>
     </ion-slides>
     
     <ion-slides *ngIf="nyhed.fields.billede.fields.length > 1" class="slide-padding" pager="true">
         <ion-slide *ngFor="let img of nyhed.fields.billede.fields">
             <ion-text>{{img.file.url}}</ion-text>
-            <ion-img src="http:{{img.file.url}}"></ion-img>
+            <ion-img src="http:{{img.file.url}}" alt=""></ion-img>
         </ion-slide>
     </ion-slides>
-    <ion-card-header (click)="open(nyhed.sys.id)">
+    <ion-card-header>
       <ion-card-subtitle class="subtitles"><b>Opslag fra {{ nyhed.fields.skaber }}</b></ion-card-subtitle>
       <ion-card-subtitle class="subtitles"><b>{{ _returnCreatedDate(nyhed.sys.createdAt) }}</b></ion-card-subtitle>
     </ion-card-header>
